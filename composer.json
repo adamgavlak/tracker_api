@@ -1,0 +1,22 @@
+{
+    "name": "gavlak/shelf",
+    "description": "Simple e-shop built in PHP",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Adam Gavlák",
+            "email": "adam@adamgavlak.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^5.5"
+    },
+    "autoload": {
+        "classmap": [
+            "./"
+        ],
+        "files": [
+            "core/helpers.php"
+        ]
+    }
+}
