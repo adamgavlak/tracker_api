@@ -37,7 +37,7 @@ class ProjectsController extends Controller
         $project = new Project();
         $project->fill(Input::all());
         $project->user_id = Auth::user()->id;
-        $project->save();
+        var_dump($project->save());
         json($project);
     }
 
@@ -50,6 +50,22 @@ class ProjectsController extends Controller
             $project->fill(Input::all());
             $project->save();
             $this->json($project);
+        }
+        else
+        {
+            http_response_code(401);
+            $this->json(['error' => 'Unauthorized']);
+        }
+    }
+
+    public function destroy()
+    {
+        $project = Project::find(Input::get('id'));
+
+        if ($this->userOwns($project))
+        {
+            Project::destroy($project->id);
+            json($project);
         }
         else
         {

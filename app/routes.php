@@ -36,6 +36,7 @@ $router->post('/projects', 'ProjectsController#create');
 
 $router->get('/projects/:id', 'ProjectsController#show');
 $router->patch('/projects/:id', 'ProjectsController#update');
+$router->delete('/projects/:id', 'ProjectsController#destroy');
 
 $router->post('/projects/:id/trackings', 'TrackingsController#create');
 
