@@ -6,10 +6,6 @@
  * Time: 12:41
  */
 
-use App\Core\App;
-use App\Core\Database\{QueryBuilder, Connection};
-use App\Core\Session;
-
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
@@ -29,12 +25,6 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, X-Api-Key');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, DELETE');
-
-App::bind('config', require 'config.php');
-
-App::bind('db', new QueryBuilder(
-    Connection::make(App::get('config')['database'])
-));
 
 function json($model)
 {
