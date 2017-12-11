@@ -20,6 +20,11 @@ class UserController extends Controller
         $this->json($user);
     }
 
+    public function current_user()
+    {
+        $this->json(Auth::user());
+    }
+
     public function update()
     {
         if (Auth::user()->id == Input::get('id'))

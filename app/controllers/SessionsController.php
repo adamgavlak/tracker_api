@@ -19,7 +19,7 @@ class SessionsController
     {
         $user = User::where('email', Input::get('email'))->first();
 
-        if (password_verify(Input::get('password'), $user->password))
+        if (!empty($user) && password_verify(Input::get('password'), $user->password))
         {
             $user->api_key = bin2hex(openssl_random_pseudo_bytes(32));
             $user->save();

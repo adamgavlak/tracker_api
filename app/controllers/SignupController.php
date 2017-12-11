@@ -18,8 +18,9 @@ class SignupController
         $user = new User();
         $user->email = Input::get('email');
         $user->password = password_hash(Input::get('password'), PASSWORD_BCRYPT);
+        $user->api_key = bin2hex(openssl_random_pseudo_bytes(32));
         $user->save();
 
-        json(['message' => 'You have successfuly signed up! Please log in now.']);
+        json(['api_key' => $user->api_key]);
     }
 }

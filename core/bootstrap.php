@@ -26,6 +26,9 @@ $capsule->addConnection([
 $capsule->bootEloquent();
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, X-Api-Key');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, DELETE');
 
 App::bind('config', require 'config.php');
 

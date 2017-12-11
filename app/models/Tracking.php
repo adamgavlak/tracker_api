@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tracking extends Model
 {
-    protected $fillable = ['user_id', 'project_id', 'day', 'from', 'to'];
+    protected $fillable = ['day', 'from', 'to', 'note'];
 
     protected $hidden = ['user_id', 'project'];
 

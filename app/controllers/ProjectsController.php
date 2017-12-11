@@ -37,7 +37,7 @@ class ProjectsController extends Controller
         $project = new Project();
         $project->fill(Input::all());
         $project->user_id = Auth::user()->id;
-        var_dump($project->save());
+        $project->save();
         json($project);
     }
 
